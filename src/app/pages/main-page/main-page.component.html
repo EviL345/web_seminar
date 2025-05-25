@@ -1,0 +1,39 @@
+<div class="container">
+
+    <div class="container">
+        <nav class="navbar">
+            <a [routerLink]="'/'">Главная</a>
+            <a [routerLink]="'recipes'" routerLinkActive="active">Рецепты</a>
+            <a [routerLink]="'masterclasses'">Мастер-классы</a>
+            <a [routerLink]="'profile'">Личный кабинет</a>
+            <a [routerLink]="'bot'">Бот</a>
+        </nav>
+  
+    <h1>Платформа кулинарных мастер-классов</h1>
+  
+    <!-- Секция ближайших мастер-классов -->
+    <h2>Ближайшие мастер-классы</h2>
+    <div class="masterclasses">
+        @for (mc of masterclasses; track $index) {
+            <div class="mc-card">
+                <div class="card-content">
+                    <h3>{{ mc.title }}</h3>
+                    <div class="mc-details">
+                        <div class="mc-date">
+                            <i class="fas fa-calendar"></i>
+                            <span class="mc-time">{{ this.formatDate(mc.dateTime) }}</span>
+                        </div>
+                        <div class="mc-chef">
+                            <div class="chef-info">
+                                <h4>{{ mc.chef.name }}</h4>
+                                <p>{{ mc.chef.specialization }}</p>
+                                <p class="chef-bio">{{ mc.chef.bio }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="register-btn">Зарегистрироваться</button>
+            </div>
+        }
+    </div>
+  </div>

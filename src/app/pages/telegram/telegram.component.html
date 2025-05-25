@@ -1,0 +1,47 @@
+
+
+<div class="container">
+    <div class="chat-container card shadow p-4 rounded">
+        <nav class="navbar mb-3" >
+            <a [routerLink]="'/'">Главная</a>
+            <a [routerLink]="'recipes'">Рецепты</a>
+            <a (click)="this.redirectToProfile('masterclasses')" routerLinkActive="active" >Мастер-классы</a>
+            <a (click)="this.redirectToProfile('profile')" >Личный кабинет</a>
+            <a (click)="this.redirectToProfile('bot')">Бот</a>
+        </nav>
+        <h3>Chat with Cooking Bot</h3>
+        <div class="chat-box mb-3">
+          <div class="mb-2">
+            @for (msg of chatLog; track $index) {
+                <div [class]="msg.sender === 'user' ? 'text-end' : 'text-start'">
+                    <span
+                      class="badge"
+                      [class]="{
+                        'bg-primary': msg.sender === 'user',
+                        'bg-secondary': msg.sender === 'bot'
+                      }"
+                    >
+                      {{ msg.text }}
+                    </span>
+                  </div>
+            }
+          </div>
+          @if (this.isLoading) {
+            <div class="text-muted small">Bot is typing...</div>
+          }
+        </div>
+      
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Type your message..."
+            [(ngModel)]="this.message"
+            (keyup.enter)="sendMessage()"
+          />
+          <button class="btn btn-primary" (click)="sendMessage()" [disabled]="isLoading">
+            Send
+          </button>
+        </div>
+      </div>    
+</div>

@@ -1,0 +1,35 @@
+
+
+   <div class="container">
+        <nav class="navbar">
+            <a [routerLink]="'/'">Главная</a>
+            <a [routerLink]="'recipes'">Рецепты</a>
+            <a (click)="this.redirectToProfile('masterclasses')" routerLinkActive="active" >Мастер-классы</a>
+            <a (click)="this.redirectToProfile('profile')" >Личный кабинет</a>
+            <a (click)="this.redirectToProfile('bot')">Бот</a>
+        </nav>
+  
+    <h2>Рецепты</h2>
+    <div class="masterclasses">
+        @for (rc of recipes; track $index) {
+            <div class="mc-card">
+                <div class="card-content">
+                    <h3>{{ rc.title }}</h3>
+                    <div class="mc-details">
+                        <div class="mc-date">
+                            <i class="fas fa-calendar"></i>
+                            <span class="mc-time">{{ rc.description }}</span>
+                        </div>
+                        <div class="mc-chef">
+                            <div class="chef-info">
+                                <h4>{{ rc.chef.name }}</h4>
+                                <p>{{ rc.chef.specialization }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="register-btn">Просмотр</button>
+            </div>
+        }
+    </div>
+  </div>

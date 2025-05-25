@@ -1,0 +1,27 @@
+<div class="container">
+    <nav class="navbar">
+        <a [routerLink]="'/'">Главная</a>
+        <a (click)="this.redirectToProfile('recipes')">Рецепты</a>
+        <a (click)="this.redirectToProfile('masterclasses')" >Мастер-классы</a>
+        <a [routerLink]="'profile'">Личный кабинет</a>
+        <a href="https://t.me/Coooking_MasterClass_bot">Бот</a>
+    </nav>
+<div class="profile-container">
+    <div class="user-info-card">
+      <div class="user-avatar">
+        <img src="user.jpg">
+      </div>
+      <div class="user-details">
+        <h2>{{ user$?.name }}</h2>
+        <p class="email">{{ user$?.email }}</p>
+        <div class="user-stats">
+          <div class="stat-item">
+            <span class="value">{{ masterclasses$.length }}</span>
+            <span class="label">Masterclasses</span>
+          </div>
+        </div>
+      </div>
+      <button (click)="this.login()" class="register-btn">{{ this.mainService.user ? 'Выйти' : 'Войти' }}</button>
+    </div>
+  </div>
+  </div>

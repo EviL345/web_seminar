@@ -1,0 +1,84 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1.125rem; }
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #0066cc;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #003366;
+}
+
+/* Common elements */
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+input, textarea, select, button {
+    font-family: inherit;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+button {
+    cursor: pointer;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #0052a3;
+}
+
+/* Container layouts */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+}

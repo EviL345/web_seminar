@@ -1,0 +1,64 @@
+
+<div class="login-container">
+    <div class="login-card">
+      <h2>Вход</h2>
+      
+      <form [formGroup]="this.loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input 
+            id="email"
+            type="email"
+            formControlName="email"
+            [class.invalid]="email?.touched && !email?.valid"
+          >
+          @if (email?.touched && !email?.valid) {
+            <div class="error-message">
+                @if (email?.errors?.['required']) {
+                    <small >Email обязателен</small>
+                }
+                @if (email?.errors?.['email']) {
+                    <small >Введите корректный email</small>
+                }
+            </div>
+          }
+        </div>
+          
+  
+        <div class="form-group">
+          <label for="password">Пароль:</label>
+          <input 
+            id="password"
+            type="password"
+            formControlName="password"
+            [class.invalid]="password?.touched && !password?.valid"
+          >
+          @if (password?.touched && !password?.valid) {
+            <div class="error-message">
+                @if (password?.errors?.['required']) {
+                    <small>Пароль обязателен</small>
+                }
+                @if (password?.errors?.['minlength']) {
+                    <small>Минимум 6 символов</small>
+                }
+              </div>
+          }
+        </div>
+  
+        <button 
+          type="submit" 
+          class="btn-primary"
+          [disabled]="isLoading || loginForm.invalid"
+        >
+          {{ isLoading ? 'Входим...' : 'Войти' }}
+        </button>
+  
+        @if (errorMessage) {
+        <div class="error-block">
+          {{ errorMessage }}
+        </div>
+        }
+        
+      </form>
+    </div>
+  </div>
